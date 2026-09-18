@@ -55,7 +55,7 @@ process.env.WHATSAPP_SWAGGER_USERNAME = options.username || "admin";
 process.env.WHATSAPP_SWAGGER_PASSWORD = options.password;
 process.env.WAHA_DASHBOARD_ENABLED = "True";
 process.env.WHATSAPP_SWAGGER_ENABLED = "True";
-process.env.WHATSAPP_DEFAULT_ENGINE = options.engine || "GOWS";
+process.env.WHATSAPP_DEFAULT_ENGINE = "GOWS";
 process.env.WAHA_NAMESPACE = "all";
 process.env.WAHA_CLIENT_DEVICE_NAME = options.client_device_name || "Home Assistant WAHA BC";
 process.env.TZ = options.timezone || "Europe/Lisbon";
@@ -71,8 +71,8 @@ if (options.webhook_url) {
     options.webhook_events || "session.status,message,message.reaction";
 }
 
-console.log("[WAHA BC] A iniciar WAHA");
-console.log(`[WAHA BC] Engine: ${process.env.WHATSAPP_DEFAULT_ENGINE}`);
+console.log("[WAHA BC] A iniciar WAHA BC 0.1.1");
+console.log("[WAHA BC] Engine: GOWS (imagem dedicada)");
 console.log(`[WAHA BC] Sessão persistente: ${options.session || "default"}`);
 console.log("[WAHA BC] Dashboard: porta 3000 /dashboard");
 console.log("[WAHA BC] API protegida por X-Api-Key");
