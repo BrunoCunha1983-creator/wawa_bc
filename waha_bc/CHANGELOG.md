@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.4
+
+- Mantém `WAHA_API_KEY` em SHA-512.
+- Disponibiliza também `WAHA_API_KEY_PLAIN` apenas dentro do contentor para componentes internos do WAHA.
+- Facilita a autenticação do Dashboard/Apps sem expor a chave no log.
+- Mantém toda a configuração existente do utilizador.
+
 ## 0.1.3
 
 - Corrige o crash que continuava a ocorrer em `@wppconnect-team/wppconnect/node_modules/sharp`.
