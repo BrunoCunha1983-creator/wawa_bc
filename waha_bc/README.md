@@ -1,6 +1,6 @@
-# WAHA BC
+# WAHA BC 0.2.0
 
-Add-on Home Assistant para executar WAHA localmente e permitir envio/receção de WhatsApp através de REST API.
+Add-on Home Assistant para executar WAHA localmente e permitir envio/receção de WhatsApp com integração nativa.
 
 - Sem Twilio
 - Sessões persistentes
@@ -8,7 +8,12 @@ Add-on Home Assistant para executar WAHA localmente e permitir envio/receção d
 - Dashboard WAHA
 - API protegida por `X-Api-Key`
 - Engine GOWS
-- Imagens WAHA dedicadas e fixadas em 2026.8.2
-- Webhooks opcionais
+- Integração Home Assistant instalada automaticamente
+- `notify.whatsapp_bc`
+- `wawa_bc.send_message`
+- sensor de estado da sessão
+- botões Start / Restart / Stop
+- receção de mensagens por webhook
+- eventos para automações
 
-Consulta o separador **Documentação** do add-on depois da instalação.
+Depois de atualizar o add-on para 0.2.0 e o iniciar, reinicia o Home Assistant e adiciona **WAHA BC** em **Definições → Dispositivos e Serviços**.
