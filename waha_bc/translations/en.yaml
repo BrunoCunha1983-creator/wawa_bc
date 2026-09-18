@@ -1,0 +1,33 @@
+configuration:
+  api_key:
+    name: API key
+    description: Secret key used in the X-Api-Key header.
+  username:
+    name: Dashboard username
+    description: Username for WAHA Dashboard and Swagger.
+  password:
+    name: Dashboard password
+    description: Password for WAHA Dashboard and Swagger.
+  engine:
+    name: WhatsApp engine
+    description: WAHA engine to use.
+  session:
+    name: Session
+    description: WhatsApp session name.
+  auto_start_session:
+    name: Auto-start session
+    description: Start the configured session when the add-on starts.
+  timezone:
+    name: Time zone
+    description: Time zone used by WAHA.
+  client_device_name:
+    name: Linked device name
+    description: Name shown in WhatsApp linked devices.
+  webhook_url:
+    name: Webhook URL
+    description: Optional URL that receives WAHA events.
+  webhook_events:
+    name: Webhook events
+    description: Comma-separated events sent to the webhook.
+network:
+  3000/tcp: WAHA Dashboard and REST API
