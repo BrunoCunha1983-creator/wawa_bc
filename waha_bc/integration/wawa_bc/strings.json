@@ -1,0 +1,28 @@
+{
+  "title": "WAHA BC",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Ligar o Home Assistant ao WAHA BC",
+        "description": "Usa a mesma API key configurada no add-on. O destinatário padrão deve incluir o indicativo do país.",
+        "data": {
+          "url": "URL do WAHA",
+          "api_key": "Chave da API",
+          "session": "Sessão",
+          "recipient": "Destinatário WhatsApp padrão",
+          "verify_ssl": "Verificar certificado SSL"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Não foi possível ligar ao WAHA.",
+      "invalid_auth": "A chave da API foi recusada.",
+      "session_not_found": "A sessão indicada não existe no WAHA.",
+      "unknown": "Ocorreu um erro inesperado."
+    },
+    "abort": {
+      "already_configured": "Esta ligação já está configurada.",
+      "single_instance_allowed": "Só é necessária uma instância do WAHA BC."
+    }
+  }
+}
