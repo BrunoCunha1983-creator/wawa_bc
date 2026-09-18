@@ -2,8 +2,8 @@
 
 ARG BUILD_ARCH
 
-FROM --platform=linux/amd64 devlikeapro/waha:latest AS amd64
-FROM --platform=linux/arm64 devlikeapro/waha:arm AS aarch64
+FROM --platform=linux/amd64 devlikeapro/waha:gows-2026.8.2 AS amd64
+FROM --platform=linux/arm64 devlikeapro/waha:gows-arm-2026.8.2 AS aarch64
 
 FROM ${BUILD_ARCH}
 
