@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3
+
+- Corrige o crash que continuava a ocorrer em `@wppconnect-team/wppconnect/node_modules/sharp`.
+- Remove a cópia aninhada de `sharp` do WPPConnect durante o build.
+- Faz o WPPConnect reutilizar o `sharp` principal do WAHA.
+- Mantém GOWS como única engine do add-on.
+- Adiciona diagnóstico da versão/resolução de `sharp` ao log de arranque.
+
 ## 0.1.2
 
 - Mantém a opção `engine: GOWS` para compatibilidade com instalações 0.1.0.
@@ -8,12 +16,10 @@
 
 ## 0.1.1
 
-- Corrige crash no arranque em `sharp` / WPPConnect.
 - Troca as imagens genéricas pelas imagens GOWS dedicadas.
 - Usa WAHA 2026.8.2 fixo para evitar regressões provocadas por `latest`.
 - amd64 usa `gows-2026.8.2`.
 - aarch64 usa `gows-arm-2026.8.2`.
-- Remove execução de engines incompatíveis com a imagem do add-on.
 
 ## 0.1.0
 
