@@ -8,9 +8,6 @@ configuration:
   password:
     name: Dashboard password
     description: Password for WAHA Dashboard and Swagger.
-  engine:
-    name: WhatsApp engine
-    description: WAHA engine to use.
   session:
     name: Session
     description: WhatsApp session name.
