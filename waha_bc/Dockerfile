@@ -26,6 +26,7 @@ RUN if [ -d /app/node_modules/@wppconnect-team/wppconnect/node_modules/sharp ]; 
       ln -s /app/node_modules/sharp /app/node_modules/@wppconnect-team/wppconnect/node_modules/sharp; \
     fi
 
+COPY integration /opt/wawa_bc/integration
 COPY run-addon.js /run-addon.js
 
 CMD ["node", "/run-addon.js"]
