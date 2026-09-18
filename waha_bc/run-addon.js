@@ -44,6 +44,17 @@ function ensurePersistentLink(linkPath, targetPath) {
   fs.symlinkSync(targetPath, linkPath, "dir");
 }
 
+function readIntegrationVersion(dir) {
+  try {
+    const manifest = JSON.parse(
+      fs.readFileSync(path.join(dir, "manifest.json"), "utf8")
+    );
+    return manifest.version || null;
+  } catch {
+    return null;
+  }
+}
+
 function installHomeAssistantIntegration(options) {
   if (options.install_integration === false) {
     console.log("[WAHA BC] Instalação automática da integração HA desativada");
@@ -60,11 +71,26 @@ function installHomeAssistantIntegration(options) {
     }
 
     fs.mkdirSync(HA_CUSTOM_COMPONENTS, { recursive: true });
+
+    const sourceVersion = readIntegrationVersion(INTEGRATION_SOURCE);
+    const installedVersion = readIntegrationVersion(INTEGRATION_TARGET);
+
+    if (sourceVersion && sourceVersion === installedVersion) {
+      console.log(
+        "[WAHA BC] Integração Home Assistant " +
+          sourceVersion +
+          " já está instalada"
+      );
+      return;
+    }
+
     fs.rmSync(INTEGRATION_TARGET, { recursive: true, force: true });
     fs.cpSync(INTEGRATION_SOURCE, INTEGRATION_TARGET, { recursive: true });
 
     console.log(
-      "[WAHA BC] Integração Home Assistant 0.2.0 instalada/atualizada em " +
+      "[WAHA BC] Integração Home Assistant " +
+        (sourceVersion || "0.2.0") +
+        " instalada/atualizada em " +
         INTEGRATION_TARGET
     );
     console.log(
