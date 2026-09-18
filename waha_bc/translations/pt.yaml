@@ -23,9 +23,12 @@ configuration:
   client_device_name:
     name: Nome do dispositivo associado
     description: Nome apresentado nos dispositivos associados do WhatsApp.
+  install_integration:
+    name: Instalar integração Home Assistant
+    description: Instala e atualiza automaticamente custom_components/wawa_bc.
   webhook_url:
     name: URL do webhook
-    description: URL opcional que recebe eventos do WAHA.
+    description: Deixa vazio para usar automaticamente o webhook interno do Home Assistant.
   webhook_events:
     name: Eventos do webhook
     description: Eventos separados por vírgulas enviados para o webhook.
