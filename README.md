@@ -17,6 +17,13 @@ WAHA BC empacota o [WAHA - WhatsApp HTTP API](https://github.com/devlikeapro/wah
 6. Antes de iniciar, define uma API key e uma palavra-passe fortes na configuração do add-on.
 7. Abre a interface Web do add-on, cria/inicia a sessão `default` e lê o QR Code com **WhatsApp → Dispositivos associados**.
 
+## Versão 0.1.1
+
+O add-on usa a engine **GOWS** e imagens dedicadas WAHA **2026.8.2**:
+
+- amd64: `devlikeapro/waha:gows-2026.8.2`
+- aarch64: `devlikeapro/waha:gows-arm-2026.8.2`
+
 ## Segurança
 
 Não exponhas a porta 3000 diretamente à Internet. Usa a API key e mantém o acesso limitado à LAN/VPN.
