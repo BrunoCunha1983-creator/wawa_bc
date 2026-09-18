@@ -99,7 +99,7 @@ async def async_setup_entry(
             "WAHA BC incoming events",
             DEFAULT_WEBHOOK_ID,
             _handle_webhook,
-            local_only=True,
+            local_only=False,
             allowed_methods=["POST"],
         )
         hass.data[DOMAIN]["webhook_registered"] = True
