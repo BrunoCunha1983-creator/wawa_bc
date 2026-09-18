@@ -38,6 +38,29 @@ function ensurePersistentLink(linkPath, targetPath) {
   fs.symlinkSync(targetPath, linkPath, "dir");
 }
 
+function sharpDiagnostics() {
+  try {
+    const pkg = JSON.parse(fs.readFileSync("/app/node_modules/sharp/package.json", "utf8"));
+    console.log(`[WAHA BC] sharp principal: ${pkg.version}`);
+  } catch (error) {
+    console.warn("[WAHA BC] Não foi possível obter a versão do sharp principal:", error.message);
+  }
+
+  const nested =
+    "/app/node_modules/@wppconnect-team/wppconnect/node_modules/sharp";
+
+  try {
+    const stat = fs.lstatSync(nested);
+    if (stat.isSymbolicLink()) {
+      console.log(`[WAHA BC] sharp WPPConnect -> ${fs.readlinkSync(nested)}`);
+    } else {
+      console.warn("[WAHA BC] sharp WPPConnect continua como diretório próprio");
+    }
+  } catch (error) {
+    console.warn("[WAHA BC] sharp WPPConnect não encontrado:", error.message);
+  }
+}
+
 const options = readOptions();
 
 requireSecret(options.api_key, "CHANGE_ME_API_KEY", "api_key");
@@ -71,11 +94,12 @@ if (options.webhook_url) {
     options.webhook_events || "session.status,message,message.reaction";
 }
 
-console.log("[WAHA BC] A iniciar WAHA BC 0.1.1");
+console.log("[WAHA BC] A iniciar WAHA BC 0.1.3");
 console.log("[WAHA BC] Engine: GOWS (imagem dedicada)");
 console.log(`[WAHA BC] Sessão persistente: ${options.session || "default"}`);
 console.log("[WAHA BC] Dashboard: porta 3000 /dashboard");
 console.log("[WAHA BC] API protegida por X-Api-Key");
+sharpDiagnostics();
 
 const child = spawn("/entrypoint.sh", [], {
   stdio: "inherit",
