@@ -8,6 +8,9 @@ configuration:
   password:
     name: Dashboard password
     description: Password for WAHA Dashboard and Swagger.
+  engine:
+    name: WhatsApp engine
+    description: Fixed to GOWS in this add-on.
   session:
     name: Session
     description: WhatsApp session name.
