@@ -17,6 +17,15 @@ LABEL \
 
 USER root
 
+# WAHA 2026.8.2 currently pulls WPPConnect from its master branch.
+# WPPConnect carries its own nested sharp build, which can crash during
+# WAHA bootstrap even when the selected engine is GOWS. We do not use WPP
+# in this add-on, so make WPPConnect resolve WAHA's top-level sharp instead.
+RUN if [ -d /app/node_modules/@wppconnect-team/wppconnect/node_modules/sharp ]; then \
+      rm -rf /app/node_modules/@wppconnect-team/wppconnect/node_modules/sharp && \
+      ln -s /app/node_modules/sharp /app/node_modules/@wppconnect-team/wppconnect/node_modules/sharp; \
+    fi
+
 COPY run-addon.js /run-addon.js
 
 CMD ["node", "/run-addon.js"]
