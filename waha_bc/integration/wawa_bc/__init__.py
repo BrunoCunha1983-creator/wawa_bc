@@ -5,7 +5,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 import hashlib
 import hmac
-import logging
 from typing import Any
 
 from aiohttp import web
@@ -36,8 +35,6 @@ from .const import (
     WEBHOOK_HEADER,
 )
 from .coordinator import WawaBcCoordinator
-
-_LOGGER = logging.getLogger(__name__)
 
 PLATFORMS: list[Platform] = [
     Platform.SENSOR,
@@ -102,6 +99,8 @@ async def async_setup_entry(
             "WAHA BC incoming events",
             DEFAULT_WEBHOOK_ID,
             _handle_webhook,
+            local_only=True,
+            allowed_methods=["POST"],
         )
         hass.data[DOMAIN]["webhook_registered"] = True
 
@@ -230,19 +229,21 @@ async def _handle_webhook(
     payload = data.get("payload") or {}
 
     if event_name == "message":
-        event_data = {
-            "session": data.get("session"),
-            "engine": data.get("engine"),
-            "id": data.get("id"),
-            "timestamp": data.get("timestamp"),
-            "from": payload.get("from"),
-            "to": payload.get("to"),
-            "body": payload.get("body"),
-            "from_me": payload.get("fromMe"),
-            "has_media": payload.get("hasMedia"),
-            "payload": payload,
-        }
-        hass.bus.async_fire(EVENT_MESSAGE_RECEIVED, event_data)
+        hass.bus.async_fire(
+            EVENT_MESSAGE_RECEIVED,
+            {
+                "session": data.get("session"),
+                "engine": data.get("engine"),
+                "id": data.get("id"),
+                "timestamp": data.get("timestamp"),
+                "from": payload.get("from"),
+                "to": payload.get("to"),
+                "body": payload.get("body"),
+                "from_me": payload.get("fromMe"),
+                "has_media": payload.get("hasMedia"),
+                "payload": payload,
+            },
+        )
 
     elif event_name == "session.status":
         status = payload.get("status")
