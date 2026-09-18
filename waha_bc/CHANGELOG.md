@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.0
+
+- Adiciona integração nativa do Home Assistant.
+- Instala/atualiza automaticamente `custom_components/wawa_bc`.
+- Adiciona Config Flow pela UI.
+- Adiciona entidade `notify.whatsapp_bc`.
+- Adiciona serviço de compatibilidade `notify.whatsapp_bc`.
+- Adiciona serviço `wawa_bc.send_message` com destino variável.
+- Adiciona sensor de estado da sessão.
+- Adiciona botões Start / Restart / Stop.
+- Adiciona webhook interno automático para mensagens, reações e estado.
+- Adiciona eventos `wawa_bc_message_received`, `wawa_bc_session_status`, `wawa_bc_reaction_received` e `wawa_bc_message_sent`.
+- Protege o webhook com SHA-256 derivado da API key.
+- Mantém GOWS, WAHA 2026.8.2, sessões persistentes e workaround do `sharp`.
+
 ## 0.1.4
 
 - Mantém `WAHA_API_KEY` em SHA-512.
