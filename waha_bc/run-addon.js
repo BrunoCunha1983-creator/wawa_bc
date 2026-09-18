@@ -72,6 +72,7 @@ ensurePersistentLink("/app/.media", "/data/media");
 const apiHash = crypto.createHash("sha512").update(options.api_key).digest("hex");
 
 process.env.WAHA_API_KEY = `sha512:${apiHash}`;
+process.env.WAHA_API_KEY_PLAIN = options.api_key;
 process.env.WAHA_DASHBOARD_USERNAME = options.username || "admin";
 process.env.WAHA_DASHBOARD_PASSWORD = options.password;
 process.env.WHATSAPP_SWAGGER_USERNAME = options.username || "admin";
@@ -94,11 +95,12 @@ if (options.webhook_url) {
     options.webhook_events || "session.status,message,message.reaction";
 }
 
-console.log("[WAHA BC] A iniciar WAHA BC 0.1.3");
+console.log("[WAHA BC] A iniciar WAHA BC 0.1.4");
 console.log("[WAHA BC] Engine: GOWS (imagem dedicada)");
 console.log(`[WAHA BC] Sessão persistente: ${options.session || "default"}`);
 console.log("[WAHA BC] Dashboard: porta 3000 /dashboard");
 console.log("[WAHA BC] API protegida por X-Api-Key");
+console.log("[WAHA BC] WAHA_API_KEY_PLAIN disponível apenas dentro do contentor");
 sharpDiagnostics();
 
 const child = spawn("/entrypoint.sh", [], {
