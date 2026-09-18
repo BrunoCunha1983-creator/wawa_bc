@@ -14,9 +14,12 @@ O add-on recusa arrancar enquanto os valores `CHANGE_ME_...` estiverem definidos
 
 ### Engine
 
-- `GOWS`: predefinido, leve e recomendado para começar.
-- `NOWEB`: sem Chromium.
-- `WEBJS`: usa Chromium e consome mais memória.
+A versão 0.1.1 usa **GOWS** de forma fixa e imagens WAHA dedicadas e fixadas na versão **2026.8.2**:
+
+- amd64: `devlikeapro/waha:gows-2026.8.2`
+- aarch64: `devlikeapro/waha:gows-arm-2026.8.2`
+
+Isto evita carregar a imagem genérica com dependências WEBJS/WPPConnect/Chromium desnecessárias.
 
 ## 2. Associar o WhatsApp
 
@@ -86,8 +89,6 @@ Para receber eventos do WhatsApp podes preencher:
 O valor inicial de eventos é:
 
 `session.status,message,message.reaction`
-
-Numa próxima versão podemos ligar isto diretamente a um webhook do Home Assistant e criar comandos bidirecionais.
 
 ## Segurança
 
