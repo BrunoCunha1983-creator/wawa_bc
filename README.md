@@ -1,36 +1,41 @@
-# WAHA BC - Home Assistant Add-on Repository
+# WAHA BC - Home Assistant App + Integration
 
-Repositório de add-ons para Home Assistant.
+Repositório do **WAHA BC**, uma ligação local entre Home Assistant e WhatsApp através do WAHA, sem Twilio.
 
-## WAHA BC
+## Instalação
 
-WAHA BC empacota o [WAHA - WhatsApp HTTP API](https://github.com/devlikeapro/waha) como add-on do Home Assistant.
+Adiciona este repositório à Loja de Apps do Home Assistant:
 
-### Instalação
+```text
+https://github.com/BrunoCunha1983-creator/wawa_bc
+```
 
-1. No Home Assistant abre **Definições → Apps → Loja de Apps**.
-2. Abre o menu de repositórios.
-3. Adiciona:
-   `https://github.com/BrunoCunha1983-creator/wawa_bc`
-4. Atualiza a loja.
-5. Instala **WAHA BC**.
-6. Antes de iniciar, define uma API key e uma palavra-passe fortes na configuração do add-on.
-7. Abre a interface Web do add-on, cria/inicia a sessão `default` e lê o QR Code com **WhatsApp → Dispositivos associados**.
+Instala **WAHA BC**, configura a API key/password e associa o WhatsApp por QR Code.
 
-## Versão 0.1.1
+A partir da versão **0.2.0**, o próprio add-on instala também uma integração nativa do Home Assistant em `custom_components/wawa_bc`.
 
-O add-on usa a engine **GOWS** e imagens dedicadas WAHA **2026.8.2**:
+Depois de iniciar/atualizar o add-on:
 
-- amd64: `devlikeapro/waha:gows-2026.8.2`
-- aarch64: `devlikeapro/waha:gows-arm-2026.8.2`
+1. Reinicia o Home Assistant.
+2. Abre **Definições → Dispositivos e Serviços**.
+3. Adiciona **WAHA BC**.
+4. Usa a mesma API key do add-on.
+5. Seleciona a sessão `default` e define o número WhatsApp padrão.
+
+## Funcionalidades 0.2.0
+
+- WAHA local / QR Code
+- GOWS
+- amd64 + aarch64
+- sessões persistentes
+- `notify.whatsapp_bc`
+- `wawa_bc.send_message`
+- sensor de estado da sessão
+- Start / Restart / Stop
+- mensagens recebidas por webhook
+- eventos Home Assistant para automações
+- suporte a números e grupos
 
 ## Segurança
 
-Não exponhas a porta 3000 diretamente à Internet. Usa a API key e mantém o acesso limitado à LAN/VPN.
-
-## Plataformas
-
-- amd64
-- aarch64
-
-O add-on seleciona automaticamente a imagem WAHA adequada à arquitetura do Home Assistant.
+Não exponhas a porta 3000 diretamente à Internet. O webhook automático entre WAHA e Home Assistant é protegido por um segredo derivado da API key.
