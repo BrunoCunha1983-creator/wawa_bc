@@ -1,5 +1,5 @@
 name: "WAHA BC"
-version: "0.1.0"
+version: "0.1.1"
 slug: "waha_bc"
 description: "WhatsApp HTTP API local para Home Assistant, sem Twilio."
 url: "https://github.com/BrunoCunha1983-creator/wawa_bc"
@@ -19,7 +19,6 @@ options:
   api_key: "CHANGE_ME_API_KEY"
   username: "admin"
   password: "CHANGE_ME_PASSWORD"
-  engine: "GOWS"
   session: "default"
   auto_start_session: false
   timezone: "Europe/Lisbon"
@@ -30,7 +29,6 @@ schema:
   api_key: password
   username: str
   password: password
-  engine: "list(WEBJS|NOWEB|GOWS)"
   session: str
   auto_start_session: bool
   timezone: str
