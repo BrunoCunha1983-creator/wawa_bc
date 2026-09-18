@@ -1,0 +1,23 @@
+send_message:
+  name: Enviar mensagem WhatsApp
+  description: Envia uma mensagem pelo WAHA BC. Se o destino for omitido, usa o destinatário padrão configurado.
+  fields:
+    target:
+      name: Destino
+      description: Número internacional sem espaços (por exemplo 351912345678) ou chat ID WAHA (@c.us/@g.us).
+      example: "351912345678"
+      selector:
+        text:
+    message:
+      name: Mensagem
+      description: Texto a enviar.
+      required: true
+      example: "Teste enviado pelo Home Assistant."
+      selector:
+        text:
+          multiline: true
+    title:
+      name: Título
+      description: Título opcional, enviado em negrito antes da mensagem.
+      selector:
+        text:
