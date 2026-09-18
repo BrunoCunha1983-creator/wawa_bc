@@ -1,0 +1,28 @@
+{
+  "title": "WAHA BC",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Home Assistant to WAHA BC",
+        "description": "Use the same API key configured in the add-on. The default recipient must include the country code.",
+        "data": {
+          "url": "WAHA URL",
+          "api_key": "API key",
+          "session": "Session",
+          "recipient": "Default WhatsApp recipient",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to WAHA.",
+      "invalid_auth": "The API key was rejected.",
+      "session_not_found": "The configured session does not exist in WAHA.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This connection is already configured.",
+      "single_instance_allowed": "Only one WAHA BC instance is required."
+    }
+  }
+}
