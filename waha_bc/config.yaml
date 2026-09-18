@@ -1,7 +1,7 @@
 name: "WAHA BC"
-version: "0.1.4"
+version: "0.2.0"
 slug: "waha_bc"
-description: "WhatsApp HTTP API local para Home Assistant, sem Twilio."
+description: "WhatsApp HTTP API local para Home Assistant, sem Twilio, com integração nativa."
 url: "https://github.com/BrunoCunha1983-creator/wawa_bc"
 arch:
   - amd64
@@ -15,6 +15,9 @@ ports:
   "3000/tcp": 3000
 ports_description:
   "3000/tcp": "WAHA Dashboard e REST API"
+map:
+  - type: homeassistant_config
+    read_only: false
 options:
   api_key: "CHANGE_ME_API_KEY"
   username: "admin"
@@ -24,6 +27,7 @@ options:
   auto_start_session: false
   timezone: "Europe/Lisbon"
   client_device_name: "Home Assistant WAHA BC"
+  install_integration: true
   webhook_url: ""
   webhook_events: "session.status,message,message.reaction"
 schema:
@@ -35,5 +39,6 @@ schema:
   auto_start_session: bool
   timezone: str
   client_device_name: str
+  install_integration: bool
   webhook_url: "str?"
   webhook_events: str
